@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cẩm Nang Giải Mã Nhân Tính — 50 Sự Thật Về Con Người | Hanadola</title>
+<meta name="description" content="Không phải cẩm nang dạy bạn làm người tốt. Đây là bản đồ để bạn điều hướng thực tế — với mắt mở, trái tim còn nguyên, và đủ ranh giới để bảo vệ bản thân.">
+<meta property="og:title" content="Cẩm Nang Giải Mã Nhân Tính — 50 Sự Thật Về Con Người">
+<meta property="og:description" content="Tài liệu số PDF · 50 sự thật · 39 trang · Hanadola Media & Technology">
+<meta property="og:image" content="https://hanadola.com/og-giai-ma-nhan-tinh.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ── Reset & Base ── */
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ink:#0C0C0C;
+  --paper:#FAF8F4;
+  --red:#C0392B;
+  --red2:#E74C3C;
+  --gold:#B8933A;
+  --gold2:#D4AA4A;
+  --muted:#8A857E;
+  --border:#2A2620;
+  --card:#131210;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Be Vietnam Pro',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--ink);
+  color:var(--paper);
+  font-family:var(--sans);
+  font-weight:300;
+  line-height:1.7;
+  overflow-x:hidden;
+}
+body::before{
+  content:'';
+  position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:999;opacity:.6;
+}
+
+/* ── Animations ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes shimmer{0%,100%{opacity:.7}50%{opacity:1}}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.03)}}
+@keyframes borderGlow{0%,100%{box-shadow:0 0 0 0 rgba(192,57,43,0)}50%{box-shadow:0 0 0 6px rgba(192,57,43,.18)}}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
+
+/* ── Sticky bar ── */
+#sticky{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  background:rgba(12,12,12,.92);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(184,147,58,.18);
+  padding:10px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+  transform:translateY(-100%);transition:transform .4s ease;
+}
+#sticky.show{transform:translateY(0)}
+#sticky .st-title{font-family:var(--serif);font-size:15px;font-weight:600;color:var(--paper);letter-spacing:.3px}
+#sticky .st-cta{
+  background:var(--red);color:#fff;
+  font-family:var(--sans);font-size:12px;font-weight:600;
+  padding:8px 20px;border-radius:4px;
+  border:none;cursor:pointer;letter-spacing:.5px;
+  transition:background .2s;white-space:nowrap;
+}
+#sticky .st-cta:hover{background:var(--red2)}
+
+/* ── Hero ── */
+.hero{
+  min-height:100vh;
+  display:flex;align-items:center;justify-content:center;
+  padding:80px 24px 60px;
+  position:relative;overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 40%,rgba(192,57,43,.10) 0%,transparent 65%),
+    radial-gradient(ellipse 60% 50% at 20% 70%,rgba(184,147,58,.06) 0%,transparent 60%);
+}
+.hero-line{position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(184,147,58,.25),transparent)}
+.hero-line.top{top:72px}.hero-line.bot{bottom:40px}
+.hero-inner{
+  max-width:1100px;width:100%;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:80px;align-items:center;
+  position:relative;z-index:1;
+}
+
+/* Mockup cẩm nang */
+.book-wrap{display:flex;align-items:center;justify-content:center;animation:fadeIn 1.2s ease both}
+.book{
+  width:260px;height:370px;
+  background:#0D0D0D;
+  border-radius:4px 12px 12px 4px;
+  border:1px solid #2A2620;
+  box-shadow:-8px 0 0 #1A1714,-10px 4px 32px rgba(0,0,0,.7),4px 4px 40px rgba(192,57,43,.15);
+  position:relative;overflow:hidden;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+}
+.book::before{
+  content:'';position:absolute;
+  top:0;left:0;width:6px;height:100%;
+  background:linear-gradient(180deg,#2A2620,#1A1714,#2A2620);
+  border-right:1px solid #333;
+}
+.book-top-bar{position:absolute;top:0;left:6px;right:0;height:3px;background:var(--red)}
+.book-brand{
+  font-family:var(--sans);font-size:6.5px;letter-spacing:3px;
+  color:rgba(184,147,58,.7);text-transform:uppercase;
+  position:absolute;top:16px;left:50%;transform:translateX(-50%);
+  white-space:nowrap;
+}
+.book-circles{
+  position:absolute;
+  width:180px;height:180px;
+  border:1px solid rgba(192,57,43,.12);border-radius:50%;
+  top:50%;left:50%;transform:translate(-50%,-42%);
+}
+.book-circles::before{
+  content:'';position:absolute;inset:18px;
+  border:1px solid rgba(192,57,43,.18);border-radius:50%;
+}
+.book-figure{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-52%);
+  width:70px;
+}
+/* SVG figure — silhouette */
+.fig-svg{width:70px;opacity:.35}
+.book-title-wrap{
+  position:absolute;top:55%;left:50%;transform:translateX(-50%);
+  text-align:center;width:220px;
+}
+.book-t1{font-family:var(--serif);font-size:18px;font-weight:600;color:#FAF8F4;letter-spacing:.5px;line-height:1.1}
+.book-t2{font-family:var(--serif);font-size:22px;font-weight:700;color:var(--red);letter-spacing:.5px;line-height:1.1;margin-top:2px}
+.book-sub{font-family:var(--sans);font-size:6.5px;letter-spacing:1.5px;color:rgba(250,248,244,.4);text-transform:uppercase;margin-top:8px}
+.book-bottom{position:absolute;bottom:0;left:6px;right:0;height:3px;background:var(--red)}
+.book-seal{
+  position:absolute;bottom:12px;right:12px;
+  width:34px;height:34px;border-radius:50%;
+  background:var(--red);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+}
+.book-seal span{font-family:var(--sans);font-size:5.5px;font-weight:600;color:#fff;letter-spacing:1px;line-height:1.3}
+
+/* Hero text */
+.hero-text{animation:fadeUp .9s ease .2s both}
+.badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(184,147,58,.1);border:1px solid rgba(184,147,58,.3);
+  padding:6px 14px;border-radius:2px;
+  font-size:10px;letter-spacing:2.5px;color:var(--gold2);text-transform:uppercase;
+  margin-bottom:24px;
+}
+.badge span{display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--gold2);animation:shimmer 2s ease infinite}
+.h1{font-family:var(--serif);font-size:clamp(36px,5vw,58px);font-weight:300;line-height:1.12;letter-spacing:-.5px;margin-bottom:8px}
+.h1 em{font-style:italic;color:var(--red)}
+.h1 strong{font-weight:700}
+.hero-desc{font-size:15px;color:rgba(250,248,244,.6);max-width:420px;margin:20px 0 36px;line-height:1.75}
+.price-block{display:flex;align-items:flex-end;gap:16px;margin-bottom:8px}
+.price-old{font-size:18px;color:var(--muted);text-decoration:line-through;font-family:var(--sans);font-weight:300}
+.price-new{font-family:var(--serif);font-size:52px;font-weight:700;color:var(--paper);line-height:1;letter-spacing:-1px}
+.price-new span{font-size:22px;font-weight:400;color:var(--muted)}
+.price-tag{background:var(--red);color:#fff;font-size:11px;font-weight:600;padding:4px 10px;border-radius:2px;letter-spacing:.5px;margin-bottom:10px}
+
+/* CTA button */
+.cta-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  background:var(--red);color:#fff;
+  font-family:var(--sans);font-size:15px;font-weight:600;
+  padding:18px 40px;border-radius:4px;
+  border:none;cursor:pointer;
+  letter-spacing:.5px;transition:background .25s,transform .2s;
+  margin-top:4px;width:100%;max-width:360px;
+  animation:borderGlow 3s ease infinite;
+}
+.cta-btn:hover{background:var(--red2);transform:translateY(-1px)}
+.cta-sub{font-size:11px;color:var(--muted);margin-top:10px;display:flex;align-items:center;gap:6px}
+.cta-sub::before{content:'🔒';font-size:10px}
+
+/* ── Countdown ── */
+.countdown-wrap{
+  background:rgba(192,57,43,.08);border:1px solid rgba(192,57,43,.25);
+  border-radius:6px;padding:16px 20px;margin-bottom:28px;
+  display:flex;align-items:center;gap:14px;
+}
+.cd-label{font-size:10px;letter-spacing:1.5px;color:rgba(192,57,43,.85);text-transform:uppercase;flex-shrink:0;line-height:1.3}
+.cd-label strong{display:block;font-size:11px;color:var(--red2)}
+.cd-units{display:flex;align-items:center;gap:6px}
+.cd-unit{text-align:center}
+.cd-num{
+  font-family:var(--serif);font-size:32px;font-weight:700;color:var(--paper);
+  line-height:1;display:block;min-width:44px;
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);
+  border-radius:4px;padding:4px 6px;
+}
+.cd-lbl{font-size:8px;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;display:block;margin-top:3px}
+.cd-sep{font-family:var(--serif);font-size:28px;font-weight:700;color:var(--red);line-height:1;margin-bottom:10px}
+
+/* ── Social proof strip ── */
+.proof-strip{padding:28px 24px;border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)}
+.proof-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:48px;flex-wrap:wrap}
+.proof-stat{text-align:center}
+.proof-num{font-family:var(--serif);font-size:36px;font-weight:700;color:var(--paper);line-height:1}
+.proof-txt{font-size:11px;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;margin-top:4px}
+
+/* ── Section ── */
+.section{padding:80px 24px;position:relative}
+.section-inner{max-width:1100px;margin:0 auto}
+.section-label{font-size:10px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:16px}
+.section-title{font-family:var(--serif);font-size:clamp(28px,4vw,46px);font-weight:300;line-height:1.15;margin-bottom:0}
+.section-title em{font-style:italic;color:var(--red)}
+.divider{width:48px;height:2px;background:var(--red);margin:20px 0 36px}
+
+/* ── For whom ── */
+.for-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:40px}
+.for-card{
+  background:var(--card);border:1px solid rgba(255,255,255,.06);
+  border-radius:8px;padding:28px 24px;
+  transition:border-color .3s,transform .3s;
+}
+.for-card:hover{border-color:rgba(192,57,43,.35);transform:translateY(-2px)}
+.for-icon{
+  width:40px;height:40px;border-radius:8px;
+  background:rgba(192,57,43,.1);border:1px solid rgba(192,57,43,.2);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:16px;font-size:18px;
+}
+.for-title{font-family:var(--serif);font-size:17px;font-weight:600;color:var(--paper);margin-bottom:8px}
+.for-desc{font-size:13px;color:rgba(250,248,244,.55);line-height:1.65}
+
+/* ── Chapters ── */
+.chapters-layout{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-top:40px}
+.chapter-list{display:flex;flex-direction:column;gap:12px}
+.chapter-item{
+  display:flex;align-items:flex-start;gap:16px;
+  padding:18px 20px;background:var(--card);
+  border:1px solid rgba(255,255,255,.05);border-radius:6px;
+  transition:border-color .25s,background .25s;
+}
+.chapter-item:hover{border-color:rgba(192,57,43,.3);background:rgba(192,57,43,.05)}
+.ch-num{font-family:var(--serif);font-size:32px;font-weight:700;color:rgba(192,57,43,.25);line-height:1;flex-shrink:0;width:36px}
+.ch-name{font-family:var(--serif);font-size:18px;font-weight:600;color:var(--paper);margin-bottom:4px}
+.ch-range{font-size:10px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:6px}
+.ch-desc{font-size:12.5px;color:rgba(250,248,244,.5);line-height:1.6}
+.chapter-right{
+  padding:32px;background:var(--card);
+  border:1px solid rgba(255,255,255,.06);border-radius:8px;
+  position:sticky;top:80px;
+}
+.cr-title{font-size:10px;font-weight:600;color:var(--gold);letter-spacing:1px;margin-bottom:20px;text-transform:uppercase}
+.truth-preview{display:flex;flex-direction:column;gap:10px}
+.truth-item{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.04)}
+.truth-item:last-child{border-bottom:none}
+.tn{font-family:var(--serif);font-size:13px;font-weight:700;color:var(--red);min-width:24px;flex-shrink:0}
+.tt{font-size:12.5px;color:rgba(250,248,244,.65);line-height:1.5}
+
+/* ── Excerpts ── */
+.excerpts{
+  padding:80px 24px;
+  background:linear-gradient(180deg,transparent,rgba(192,57,43,.04),transparent);
+}
+.excerpt-grid{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:32px;margin-top:40px}
+.excerpt-card{padding:32px 36px;border-left:3px solid var(--red);background:var(--card);border-radius:0 8px 8px 0}
+.excerpt-num{font-size:11px;font-weight:600;color:var(--red);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
+.excerpt-text{font-family:var(--serif);font-size:clamp(18px,2.5vw,24px);font-weight:300;font-style:italic;color:var(--paper);line-height:1.55;margin-bottom:14px}
+.excerpt-close{font-size:13px;color:rgba(184,147,58,.8);font-family:var(--sans);font-weight:500}
+.excerpt-close::before{content:'— '}
+
+/* ── What you get ── */
+.get-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:40px}
+.get-card{background:var(--card);border:1px solid rgba(255,255,255,.05);border-radius:8px;padding:24px 20px;text-align:center}
+.get-icon{font-size:28px;margin-bottom:12px;display:block}
+.get-title{font-family:var(--serif);font-size:16px;font-weight:600;color:var(--paper);margin-bottom:6px}
+.get-desc{font-size:12px;color:var(--muted);line-height:1.6}
+
+/* ── Pricing ── */
+.pricing{
+  padding:80px 24px;
+  background:radial-gradient(ellipse 70% 60% at 50% 50%,rgba(192,57,43,.08) 0%,transparent 70%);
+}
+.price-card{
+  max-width:520px;margin:40px auto 0;
+  background:var(--card);border:1px solid rgba(192,57,43,.3);
+  border-radius:12px;padding:48px 44px;
+  text-align:center;position:relative;overflow:hidden;
+}
+.price-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--red),var(--gold),var(--red))}
+.pc-badge{
+  display:inline-block;background:rgba(192,57,43,.15);border:1px solid rgba(192,57,43,.3);
+  color:var(--red2);font-size:11px;font-weight:600;
+  letter-spacing:1.5px;text-transform:uppercase;
+  padding:5px 16px;border-radius:20px;margin-bottom:20px;
+}
+.pc-title{font-family:var(--serif);font-size:28px;font-weight:600;color:var(--paper);margin-bottom:4px}
+.pc-subtitle{font-size:13px;color:var(--muted);margin-bottom:28px}
+.pc-price-old{font-size:16px;color:var(--muted);text-decoration:line-through;margin-bottom:6px}
+.pc-price{font-family:var(--serif);font-size:68px;font-weight:700;color:var(--paper);line-height:1;letter-spacing:-2px;margin-bottom:4px}
+.pc-price span{font-size:28px;font-weight:300;color:var(--muted)}
+.pc-savings{
+  display:inline-block;
+  background:rgba(184,147,58,.12);border:1px solid rgba(184,147,58,.3);
+  color:var(--gold2);font-size:12px;font-weight:600;
+  padding:4px 14px;border-radius:20px;margin-bottom:28px;letter-spacing:.5px;
+}
+.pc-features{list-style:none;text-align:left;margin-bottom:32px;display:flex;flex-direction:column;gap:10px}
+.pc-features li{display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:rgba(250,248,244,.75)}
+.pc-features li::before{content:'✓';color:var(--gold2);font-weight:700;flex-shrink:0;margin-top:1px}
+.pc-cta{
+  display:block;background:var(--red);color:#fff;
+  font-family:var(--sans);font-size:16px;font-weight:600;
+  padding:20px;border-radius:6px;
+  border:none;cursor:pointer;width:100%;
+  letter-spacing:.5px;transition:background .25s,transform .2s;
+  animation:pulse 3s ease infinite;
+}
+.pc-cta:hover{background:var(--red2);transform:translateY(-1px);animation:none}
+.pc-guarantee{margin-top:18px;font-size:11px;color:var(--muted);display:flex;align-items:center;justify-content:center;gap:6px}
+.pc-guarantee::before{content:'🔒';font-size:11px}
+
+/* Countdown trong price card */
+.pc-countdown{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  margin-bottom:28px;padding:12px 16px;
+  background:rgba(192,57,43,.08);border:1px solid rgba(192,57,43,.2);border-radius:6px;
+}
+.pc-cd-label{font-size:10px;letter-spacing:1.5px;color:var(--red2);text-transform:uppercase}
+.pc-cd-units{display:flex;gap:4px;align-items:center}
+.pc-cd-num{font-family:var(--serif);font-size:26px;font-weight:700;color:var(--paper);min-width:38px;text-align:center;background:rgba(255,255,255,.05);border-radius:4px;padding:2px 4px}
+.pc-cd-sep{color:var(--red);font-size:20px;font-weight:700;line-height:1;margin-bottom:6px}
+
+/* ── Reviews ── */
+.reviews{padding:80px 24px}
+.review-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:40px}
+.review-card{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:8px;padding:28px 24px}
+.stars{color:var(--gold2);font-size:14px;letter-spacing:2px;margin-bottom:14px}
+.review-text{font-family:var(--serif);font-size:16px;font-style:italic;color:rgba(250,248,244,.8);line-height:1.65;margin-bottom:16px}
+.review-author{display:flex;align-items:center;gap:10px}
+.review-avatar{
+  width:36px;height:36px;border-radius:50%;
+  background:rgba(192,57,43,.2);border:1px solid rgba(192,57,43,.3);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-size:14px;font-weight:700;color:var(--red2);flex-shrink:0;
+}
+.review-name{font-size:13px;font-weight:500;color:var(--paper)}
+.review-role{font-size:11px;color:var(--muted)}
+
+/* ── FAQ ── */
+.faq{padding:80px 24px}
+.faq-inner{max-width:700px;margin:0 auto}
+.faq-list{margin-top:40px;display:flex;flex-direction:column}
+.faq-item{border-bottom:1px solid rgba(255,255,255,.07)}
+.faq-q{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 0;cursor:pointer;
+  font-size:15px;font-weight:500;color:var(--paper);gap:16px;list-style:none;
+}
+.faq-q::after{content:'+';font-size:22px;font-weight:300;color:var(--red);flex-shrink:0;transition:transform .3s}
+.faq-item.open .faq-q::after{transform:rotate(45deg)}
+.faq-a{font-size:13.5px;color:rgba(250,248,244,.55);line-height:1.75;padding-bottom:20px;display:none}
+.faq-item.open .faq-a{display:block}
+
+/* ── Final CTA ── */
+.final-cta{
+  padding:100px 24px;text-align:center;
+  background:radial-gradient(ellipse 80% 70% at 50% 50%,rgba(192,57,43,.1) 0%,transparent 70%);
+  position:relative;overflow:hidden;
+}
+.final-cta::before,.final-cta::after{content:'';position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(184,147,58,.2),transparent)}
+.final-cta::before{top:0}.final-cta::after{bottom:0}
+.fc-quote{
+  font-family:var(--serif);font-size:clamp(20px,3vw,32px);
+  font-weight:300;font-style:italic;color:rgba(250,248,244,.7);
+  max-width:680px;margin:0 auto 40px;line-height:1.5;
+}
+.fc-quote strong{font-weight:700;font-style:normal;color:var(--paper)}
+
+/* ── Policy tabs ── */
+.policy-section{padding:60px 24px;background:rgba(255,255,255,.015)}
+.policy-inner{max-width:700px;margin:0 auto}
+.policy-tabs{display:flex;gap:0;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:24px}
+.policy-tab{
+  padding:10px 20px;font-size:13px;font-weight:500;
+  color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;
+  margin-bottom:-1px;transition:all .2s;
+}
+.policy-tab.active{color:var(--paper);border-bottom-color:var(--red)}
+.policy-content{display:none;font-size:13px;color:rgba(250,248,244,.5);line-height:1.8}
+.policy-content.active{display:block}
+.policy-content h4{font-family:var(--serif);font-size:16px;font-weight:600;color:var(--paper);margin-bottom:8px;margin-top:16px}
+.policy-content h4:first-child{margin-top:0}
+
+/* ── Footer ── */
+footer{padding:40px 24px;border-top:1px solid rgba(255,255,255,.06);text-align:center}
+.footer-inner{max-width:700px;margin:0 auto}
+.footer-brand{font-family:var(--serif);font-size:18px;font-weight:600;color:var(--paper);margin-bottom:4px}
+.footer-sub{font-size:11px;letter-spacing:2px;color:var(--muted);text-transform:uppercase}
+.footer-info{font-size:12px;color:rgba(138,133,126,.55);margin-top:16px;line-height:1.8}
+.footer-links{display:flex;gap:24px;justify-content:center;margin-top:16px;flex-wrap:wrap}
+.footer-links a{font-size:12px;color:var(--muted);text-decoration:none;transition:color .2s;cursor:pointer}
+.footer-links a:hover{color:var(--paper)}
+.footer-copy{font-size:11px;color:rgba(138,133,126,.35);margin-top:16px}
+.footer-legal{
+  margin-top:12px;padding-top:12px;
+  border-top:1px solid rgba(255,255,255,.04);
+  font-size:10.5px;color:rgba(138,133,126,.35);line-height:1.7;
+}
+
+/* ══════════════════════════════════════════
+   MODAL THANH TOÁN
+══════════════════════════════════════════ */
+.modal-overlay{
+  display:none;position:fixed;inset:0;
+  background:rgba(5,5,5,0.88);backdrop-filter:blur(8px);
+  z-index:500;align-items:center;justify-content:center;padding:16px;
+}
+.modal-overlay.open{display:flex}
+.modal-box{
+  background:#131210;border:1px solid rgba(192,57,43,.25);
+  border-radius:12px;width:100%;max-width:460px;
+  max-height:92vh;overflow-y:auto;
+  box-shadow:0 32px 80px rgba(0,0,0,.7);
+  animation:fadeUp .35s ease both;
+  position:relative;
+}
+.modal-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--red),var(--gold),var(--red))}
+.modal-head{
+  padding:24px 28px 0;
+  display:flex;align-items:flex-start;justify-content:space-between;
+}
+.modal-title{font-family:var(--serif);font-size:20px;font-weight:600;color:var(--paper);line-height:1.2}
+.modal-close{background:none;border:none;color:var(--muted);font-size:20px;cursor:pointer;padding:0;line-height:1;flex-shrink:0;margin-top:2px;transition:color .2s}
+.modal-close:hover{color:var(--paper)}
+.modal-body{padding:20px 28px 28px}
+
+/* Step 1 — Form */
+.mfield{margin-bottom:16px}
+.mfield label{display:block;font-size:11px;font-weight:500;color:var(--muted);margin-bottom:6px;letter-spacing:.05em;text-transform:uppercase}
+.mfield label .req{color:var(--red2);margin-left:2px}
+.mfield input{
+  width:100%;background:#0C0C0C;
+  border:1px solid rgba(255,255,255,.08);border-radius:6px;
+  color:var(--paper);font-family:var(--sans);font-size:14px;font-weight:300;
+  padding:12px 14px;outline:none;
+  transition:border-color .2s,box-shadow .2s;
+}
+.mfield input::placeholder{color:rgba(138,133,126,.5)}
+.mfield input:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(192,57,43,.12)}
+.m-price-tag{
+  background:rgba(192,57,43,.08);border:1px solid rgba(192,57,43,.2);
+  border-radius:6px;padding:14px 16px;margin-bottom:20px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.m-prod-name{font-family:var(--serif);font-size:14px;font-weight:600;color:var(--paper)}
+.m-prod-price{font-family:var(--serif);font-size:24px;font-weight:700;color:var(--paper)}
+.m-prod-price-old{font-size:12px;color:var(--muted);text-decoration:line-through;margin-right:6px}
+#m-error{display:none;color:#E57373;font-size:12.5px;margin-bottom:12px}
+.m-submit{
+  width:100%;background:var(--red);color:#fff;
+  font-family:var(--sans);font-size:15px;font-weight:600;
+  padding:16px;border:none;border-radius:6px;
+  cursor:pointer;letter-spacing:.5px;
+  transition:background .2s,transform .15s;
+}
+.m-submit:hover:not(:disabled){background:var(--red2);transform:translateY(-1px)}
+.m-submit:disabled{opacity:.5;cursor:not-allowed}
+.m-note{font-size:11px;color:rgba(138,133,126,.5);text-align:center;margin-top:10px;line-height:1.6}
+
+/* Step 2 — QR */
+.step{display:none}
+.step.active{display:block}
+.qr-wrap{
+  background:#0C0C0C;border:1px solid rgba(255,255,255,.06);
+  border-radius:8px;padding:20px;text-align:center;margin-bottom:16px;
+}
+.qr-img{width:200px;height:200px;border-radius:6px;display:block;margin:0 auto 12px}
+.qr-label{font-size:11px;color:var(--muted);letter-spacing:.05em}
+.order-code-box{
+  background:rgba(192,57,43,.06);border:1px solid rgba(192,57,43,.2);
+  border-radius:6px;padding:12px 16px;
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:14px;
+}
+.order-code-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
+.order-code-val{font-family:var(--serif);font-size:18px;font-weight:700;color:var(--gold2);letter-spacing:1px}
+.transfer-info{background:#0C0C0C;border:1px solid rgba(255,255,255,.06);border-radius:6px;padding:14px 16px;margin-bottom:16px;font-size:13px}
+.ti-row{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.04)}
+.ti-row:last-child{border-bottom:none}
+.ti-label{color:var(--muted)}
+.ti-val{color:var(--paper);font-weight:500;text-align:right}
+.ti-val.highlight{color:var(--gold2)}
+.polling-status{
+  text-align:center;padding:12px;
+  background:rgba(192,57,43,.06);border-radius:6px;
+  font-size:13px;color:var(--muted);
+  display:flex;align-items:center;justify-content:center;gap:8px;
+}
+.polling-dot{width:8px;height:8px;border-radius:50%;background:var(--red);animation:shimmer 1.2s ease infinite;flex-shrink:0}
+
+/* Step 3 — Success */
+.success-icon{
+  width:72px;height:72px;border-radius:50%;
+  background:rgba(61,190,122,.1);border:2px solid #3DBE7A;
+  display:flex;align-items:center;justify-content:center;
+  font-size:32px;margin:0 auto 20px;
+}
+.success-title{font-family:var(--serif);font-size:26px;font-weight:600;text-align:center;margin-bottom:8px}
+.success-desc{font-size:14px;color:rgba(250,248,244,.6);text-align:center;line-height:1.8;margin-bottom:20px}
+.success-dl{
+  display:block;background:var(--red);color:#fff;
+  font-family:var(--sans);font-size:15px;font-weight:600;
+  padding:16px;border-radius:6px;text-align:center;
+  text-decoration:none;letter-spacing:.5px;margin-bottom:12px;
+  transition:background .2s;
+}
+.success-dl:hover{background:var(--red2)}
+.success-email-note{font-size:12px;color:var(--muted);text-align:center;line-height:1.6}
+
+/* ── Responsive ── */
+@media(max-width:768px){
+  .hero-inner{grid-template-columns:1fr;gap:40px;text-align:center}
+  .book-wrap{order:-1}
+  .book{width:200px;height:285px}
+  .book-t1{font-size:14px}.book-t2{font-size:17px}
+  .hero-desc{margin-left:auto;margin-right:auto}
+  .cta-btn{max-width:100%}
+  .price-block{justify-content:center}
+  .countdown-wrap{flex-direction:column;gap:10px;text-align:center}
+  .chapters-layout{grid-template-columns:1fr}
+  .chapter-right{position:relative;top:auto}
+  .excerpt-card{padding:24px 20px}
+  .proof-inner{gap:28px}
+  .price-card{padding:36px 24px}
+  .modal-box{max-width:100%}
+  .modal-body{padding:16px 20px 24px}
+  .modal-head{padding:20px 20px 0}
+}
+</style>
+</head>
+<body>
+
+<!-- ══════ MODAL THANH TOÁN ══════ -->
+<div class="modal-overlay" id="modal-overlay" onclick="handleOverlayClick(event)">
+  <div class="modal-box" id="modal-box">
+    <div class="modal-head">
+      <div class="modal-title" id="modal-title">Sở hữu Cẩm Nang</div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body">
+
+      <!-- BƯỚC 1: FORM THÔNG TIN -->
+      <div class="step active" id="step1">
+        <div class="m-price-tag">
+          <div>
+            <div class="m-prod-name">Cẩm Nang Giải Mã Nhân Tính</div>
+            <div style="font-size:11px;color:var(--muted);margin-top:2px">Tài liệu số PDF · 50 sự thật · 39 trang</div>
+          </div>
+          <div style="text-align:right">
+            <span class="m-prod-price-old">299k</span>
+            <span class="m-prod-price">149k</span>
+          </div>
+        </div>
+
+        <div class="mfield">
+          <label>Họ và tên <span class="req">*</span></label>
+          <input type="text" id="m-name" placeholder="Nguyễn Văn A" maxlength="60">
+        </div>
+        <div class="mfield">
+          <label>Email <span class="req">*</span></label>
+          <input type="text" inputmode="email" id="m-email" placeholder="email@example.com">
+        </div>
+        <div class="mfield">
+          <label>Số điện thoại <span class="req">*</span></label>
+          <input type="tel" id="m-phone" placeholder="0xxx xxx xxx" maxlength="15">
+        </div>
+
+        <div id="m-error"></div>
+
+        <button class="m-submit" id="m-submit-btn" onclick="submitOrder()">
+          Tiếp tục — Thanh toán →
+        </button>
+        <div class="m-note">🔒 Thông tin của bạn được bảo mật tuyệt đối · Nhận tài liệu ngay sau thanh toán</div>
+      </div>
+
+      <!-- BƯỚC 2: QR THANH TOÁN -->
+      <div class="step" id="step2">
+        <div class="qr-wrap">
+          <img id="qr-img" class="qr-img" src="" alt="QR Thanh toán">
+          <div class="qr-label">Quét mã để thanh toán · ACB Bank</div>
+        </div>
+
+        <div class="order-code-box">
+          <span class="order-code-label">Nội dung CK</span>
+          <span class="order-code-val" id="qr-order-code">—</span>
+        </div>
+
+        <div class="transfer-info">
+          <div class="ti-row"><span class="ti-label">Ngân hàng</span><span class="ti-val">ACB</span></div>
+          <div class="ti-row"><span class="ti-label">Số tài khoản</span><span class="ti-val">20176968</span></div>
+          <div class="ti-row"><span class="ti-label">Chủ tài khoản</span><span class="ti-val" style="font-size:11px">HANADOLA MEDIA & TECHNOLOGY</span></div>
+          <div class="ti-row"><span class="ti-label">Số tiền</span><span class="ti-val highlight">149.000 đ</span></div>
+          <div class="ti-row"><span class="ti-label">Nội dung</span><span class="ti-val highlight" id="qr-order-code2">—</span></div>
+        </div>
+
+        <div class="polling-status">
+          <div class="polling-dot"></div>
+          Đang chờ xác nhận thanh toán...
+        </div>
+        <div class="m-note" style="margin-top:12px">Hệ thống tự động xác nhận trong vài giây sau khi nhận được chuyển khoản</div>
+      </div>
+
+      <!-- BƯỚC 3: THÀNH CÔNG -->
+      <div class="step" id="step3">
+        <div class="success-icon">✓</div>
+        <div class="success-title">Thanh toán thành công!</div>
+        <div class="success-desc">
+          Cảm ơn bạn đã tin tưởng Hanadola.<br>
+          Tài liệu số đã được gửi đến email của bạn.<br>
+          Hóa đơn điện tử sẽ được xuất trong 24 giờ.
+        </div>
+        <a href="#" id="success-dl-btn" class="success-dl">📥 Tải về Cẩm Nang ngay</a>
+        <div class="success-email-note">
+          💌 Kiểm tra hộp thư email (kể cả Spam) nếu không thấy link tải về.<br>
+          Hỗ trợ: admin@hanadola.com · Zalo 0935 251 866
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ══════ STICKY BAR ══════ -->
+<div id="sticky">
+  <span class="st-title">Giải Mã Nhân Tính — Cẩm Nang</span>
+  <button class="st-cta" onclick="openModal()">Mua ngay — 149k ↓</button>
+</div>
+
+<!-- ══════ HERO ══════ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-line top"></div>
+  <div class="hero-line bot"></div>
+
+  <div class="hero-inner">
+    <!-- Mockup -->
+    <div class="book-wrap">
+      <div class="book">
+        <div class="book-top-bar"></div>
+        <div class="book-brand">Góc Tĩnh Lặng · Hanadola</div>
+        <div class="book-circles">
+          <svg class="fig-svg" viewBox="0 0 70 90" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-55%)">
+            <circle cx="35" cy="22" r="12" fill="rgba(192,57,43,0.6)"/>
+            <path d="M10 85 C10 60 25 52 35 52 C45 52 60 60 60 85" fill="rgba(192,57,43,0.5)"/>
+          </svg>
+        </div>
+        <div class="book-title-wrap">
+          <div class="book-t1">Giải Mã</div>
+          <div class="book-t2">Nhân Tính</div>
+          <div class="book-sub">50 Sự Thật Về Con Người</div>
+        </div>
+        <div class="book-bottom"></div>
+        <div class="book-seal">
+          <span>PDF</span>
+          <span>39tr</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Text -->
+    <div class="hero-text">
+      <div class="badge"><span></span>Cẩm nang · Tài liệu số</div>
+      <h1 class="h1">
+        <strong>50 sự thật</strong> về con người<br>
+        mà ít ai dám <em>nói thẳng</em>
+      </h1>
+      <p class="hero-desc">Không phải cẩm nang dạy bạn làm người tốt. Đây là bản đồ để bạn điều hướng thực tế — với mắt mở, trái tim còn nguyên, và đủ ranh giới để bảo vệ bản thân.</p>
+
+      <div class="countdown-wrap">
+        <div class="cd-label">Ưu đãi<strong>50% OFF</strong>kết thúc sau</div>
+        <div class="cd-units">
+          <div class="cd-unit"><span class="cd-num" id="h1">00</span><span class="cd-lbl">giờ</span></div>
+          <div class="cd-sep">:</div>
+          <div class="cd-unit"><span class="cd-num" id="m1">00</span><span class="cd-lbl">phút</span></div>
+          <div class="cd-sep">:</div>
+          <div class="cd-unit"><span class="cd-num" id="s1">00</span><span class="cd-lbl">giây</span></div>
+        </div>
+      </div>
+
+      <div class="price-block">
+        <span class="price-old">299.000đ</span>
+        <span class="price-new">149<span>k</span></span>
+      </div>
+      <div class="price-tag">TIẾT KIỆM 150.000Đ · 50% OFF</div>
+
+      <button class="cta-btn" onclick="openModal()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        Sở hữu ngay — 149.000đ
+      </button>
+      <div class="cta-sub">Thanh toán bảo mật · Nhận tài liệu ngay · Hóa đơn điện tử</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ SOCIAL PROOF ══════ -->
+<div class="proof-strip">
+  <div class="proof-inner">
+    <div class="proof-stat">
+      <div class="proof-num">50</div>
+      <div class="proof-txt">Sự thật sâu sắc</div>
+    </div>
+    <div class="proof-stat">
+      <div class="proof-num">5</div>
+      <div class="proof-txt">Chương nội dung</div>
+    </div>
+    <div class="proof-stat">
+      <div class="proof-num">+18k</div>
+      <div class="proof-txt">Từ trong cẩm nang</div>
+    </div>
+    <div class="proof-stat">
+      <div class="proof-num">4.9★</div>
+      <div class="proof-txt">Đánh giá người dùng</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ FOR WHOM ══════ -->
+<section class="section">
+  <div class="section-inner">
+    <p class="section-label reveal">Dành cho ai</p>
+    <h2 class="section-title reveal">Bạn sẽ thấy mình <em>ở đây</em></h2>
+    <div class="divider reveal"></div>
+    <div class="for-grid">
+      <div class="for-card reveal">
+        <div class="for-icon">👁</div>
+        <div class="for-title">Người đã bị phản bội</div>
+        <div class="for-desc">Bạn đã tin ai đó hoàn toàn và bị tổn thương. Cẩm nang này không hứa chữa lành — nó giúp bạn hiểu tại sao điều đó xảy ra và không để nó xảy ra lần nữa.</div>
+      </div>
+      <div class="for-card reveal">
+        <div class="for-icon">⚖</div>
+        <div class="for-title">Người đang xây dựng ranh giới</div>
+        <div class="for-desc">Bạn biết cần có giới hạn nhưng không biết vẽ chúng ở đâu mà không trở nên lạnh lùng. Đây là lộ trình cho bạn.</div>
+      </div>
+      <div class="for-card reveal">
+        <div class="for-icon">🧭</div>
+        <div class="for-title">Người muốn sống có chủ đích</div>
+        <div class="for-desc">Bạn không còn muốn phản ứng theo bản năng — bạn muốn hiểu cuộc chơi đủ để chọn vị trí của mình trong đó một cách tỉnh thức.</div>
+      </div>
+      <div class="for-card reveal">
+        <div class="for-icon">🤝</div>
+        <div class="for-title">Người làm kinh doanh & lãnh đạo</div>
+        <div class="for-desc">Trong mọi thương lượng, tuyển dụng, hay hợp tác — bạn cần đọc người nhanh hơn, chính xác hơn và giữ được mình.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ CHAPTERS ══════ -->
+<section class="section" style="padding-top:0">
+  <div class="section-inner">
+    <p class="section-label reveal">Nội dung cẩm nang</p>
+    <h2 class="section-title reveal">5 chương · 50 sự thật · <em>Một bản đồ nhân tính</em></h2>
+    <div class="divider reveal"></div>
+    <div class="chapters-layout">
+      <div class="chapter-list">
+        <div class="chapter-item reveal">
+          <div class="ch-num">01</div>
+          <div class="ch-body">
+            <div class="ch-name">Mặt Nạ</div>
+            <div class="ch-range">Sự thật 01 — 10</div>
+            <div class="ch-desc">Con người không sống thật — họ sống theo phiên bản họ muốn người khác nhìn thấy. Chương này giúp bạn đọc được những gì ẩn sau lớp mặt nạ đó.</div>
+          </div>
+        </div>
+        <div class="chapter-item reveal">
+          <div class="ch-num">02</div>
+          <div class="ch-body">
+            <div class="ch-name">Lợi Ích</div>
+            <div class="ch-range">Sự thật 11 — 20</div>
+            <div class="ch-desc">Mọi hành động đều có một câu hỏi thầm: "Điều này mang lại gì cho tôi?" Hiểu được động cơ thật sự của người khác là bước đầu để bảo vệ bản thân.</div>
+          </div>
+        </div>
+        <div class="chapter-item reveal">
+          <div class="ch-num">03</div>
+          <div class="ch-body">
+            <div class="ch-name">Quyền Lực</div>
+            <div class="ch-range">Sự thật 21 — 30</div>
+            <div class="ch-desc">Trong mọi mối quan hệ đều có kẻ dẫn dắt và kẻ bị dẫn dắt — quyền lực vận hành trong im lặng. Chương này tiết lộ cơ chế đó.</div>
+          </div>
+        </div>
+        <div class="chapter-item reveal">
+          <div class="ch-num">04</div>
+          <div class="ch-body">
+            <div class="ch-name">Phản Bội</div>
+            <div class="ch-range">Sự thật 31 — 40</div>
+            <div class="ch-desc">Kẻ phản bội bạn không phải kẻ thù — đó là người bạn đã tốt nhất với họ. Chương này đau, nhưng cần thiết.</div>
+          </div>
+        </div>
+        <div class="chapter-item reveal">
+          <div class="ch-num">05</div>
+          <div class="ch-body">
+            <div class="ch-name">Tự Do</div>
+            <div class="ch-range">Sự thật 41 — 50</div>
+            <div class="ch-desc">Sau khi nhìn rõ nhân tính — bạn có hai lựa chọn: tức giận, hoặc tự do. Chương này dành cho những ai chọn tự do.</div>
+          </div>
+        </div>
+      </div>
+      <div class="chapter-right reveal">
+        <div class="cr-title">Trích lược · Những sự thật bạn sẽ gặp</div>
+        <div class="truth-preview">
+          <div class="truth-item"><span class="tn">#01</span><span class="tt">Con người không ghét bạn. Họ ghét hình ảnh của bản thân họ trong bạn.</span></div>
+          <div class="truth-item"><span class="tn">#11</span><span class="tt">Mọi hành động của con người đều có giá. Kể cả lòng tốt.</span></div>
+          <div class="truth-item"><span class="tn">#21</span><span class="tt">Người im lặng cuối cùng thường là người kiểm soát cuộc chơi.</span></div>
+          <div class="truth-item"><span class="tn">#35</span><span class="tt">Khi ai đó cho bạn thấy con người thật của họ — đó là món quà. Đừng trả lại nó.</span></div>
+          <div class="truth-item"><span class="tn">#43</span><span class="tt">Người thực sự tự do là người có thể nói "không" mà không cần giải thích.</span></div>
+          <div class="truth-item"><span class="tn">#50</span><span class="tt">Mục tiêu cuối cùng là hiểu chính mình đủ để không bị người khác định nghĩa.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ EXCERPTS ══════ -->
+<div class="excerpts">
+  <div class="section-inner" style="text-align:center">
+    <p class="section-label reveal">Trích đoạn</p>
+    <h2 class="section-title reveal">Đọc thử trước khi <em>quyết định</em></h2>
+    <div class="divider reveal" style="margin:20px auto 0"></div>
+  </div>
+  <div class="excerpt-grid">
+    <div class="excerpt-card reveal">
+      <div class="excerpt-num">Sự thật 03</div>
+      <div class="excerpt-text">"Người ta không tìm ánh sáng. Họ tìm bóng tối vừa với hình dạng của họ."</div>
+      <div class="excerpt-close">Khi bạn nói thật và họ tức giận — không phải vì họ không hiểu. Mà vì họ hiểu quá rõ.</div>
+    </div>
+    <div class="excerpt-card reveal">
+      <div class="excerpt-num">Sự thật 21</div>
+      <div class="excerpt-text">"Đừng bao giờ là người lên tiếng đầu tiên trong căng thẳng. Hãy luôn là người quyết định cuối cùng."</div>
+      <div class="excerpt-close">Im lặng không phải thiếu ý kiến. Đó là kỷ luật.</div>
+    </div>
+    <div class="excerpt-card reveal">
+      <div class="excerpt-num">Sự thật 35</div>
+      <div class="excerpt-text">"Khi ai đó cho bạn thấy con người thật của họ — đó là món quà. Đừng trả lại nó."</div>
+      <div class="excerpt-close">Chúng ta thường chọn không nhìn thấy vì muốn tin vào phiên bản tốt hơn của họ.</div>
+    </div>
+    <div class="excerpt-card reveal">
+      <div class="excerpt-num">Sự thật 49</div>
+      <div class="excerpt-text">"Tử tế mà biết rủi ro, vẫn chọn tử tế — đó là can đảm."</div>
+      <div class="excerpt-close">Tử tế khi bạn chưa biết đời là gì thì đó là ngây thơ. Tử tế khi đã biết — đó mới là sức mạnh.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ WHAT YOU GET ══════ -->
+<section class="section">
+  <div class="section-inner">
+    <p class="section-label reveal">Bạn nhận được gì</p>
+    <h2 class="section-title reveal">Tất cả trong <em>một tài liệu</em></h2>
+    <div class="divider reveal"></div>
+    <div class="get-grid">
+      <div class="get-card reveal">
+        <span class="get-icon">📄</span>
+        <div class="get-title">Tài liệu PDF 39 trang</div>
+        <div class="get-desc">Thiết kế chuyên nghiệp, tối ưu cho cả điện thoại và máy tính</div>
+      </div>
+      <div class="get-card reveal">
+        <span class="get-icon">🎯</span>
+        <div class="get-title">50 sự thật có chiều sâu</div>
+        <div class="get-desc">Viết theo phong cách triết học thực dụng — không sáo rỗng, không tự giúp đỡ thông thường</div>
+      </div>
+      <div class="get-card reveal">
+        <span class="get-icon">📚</span>
+        <div class="get-title">5 chương hoàn chỉnh</div>
+        <div class="get-desc">Mặt Nạ · Lợi Ích · Quyền Lực · Phản Bội · Tự Do</div>
+      </div>
+      <div class="get-card reveal">
+        <span class="get-icon">⚡</span>
+        <div class="get-title">Nhận tài liệu ngay</div>
+        <div class="get-desc">File gửi tự động về email sau khi thanh toán xác nhận — không cần chờ đợi</div>
+      </div>
+      <div class="get-card reveal">
+        <span class="get-icon">🧾</span>
+        <div class="get-title">Hóa đơn điện tử</div>
+        <div class="get-desc">Hóa đơn GTGT xuất tự động — hợp lệ theo quy định Bộ Tài Chính</div>
+      </div>
+      <div class="get-card reveal">
+        <span class="get-icon">♾</span>
+        <div class="get-title">Sở hữu vĩnh viễn</div>
+        <div class="get-desc">Mua một lần, đọc mãi mãi trên bất kỳ thiết bị nào hỗ trợ PDF</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ PRICING ══════ -->
+<section class="pricing">
+  <div class="section-inner" style="text-align:center">
+    <p class="section-label reveal">Giá & Đặt hàng</p>
+    <h2 class="section-title reveal">Đầu tư duy nhất · <em>Sở hữu trọn đời</em></h2>
+    <div class="divider reveal" style="margin:20px auto 0"></div>
+  </div>
+  <div class="price-card reveal">
+    <div class="pc-badge">Ưu đãi ra mắt</div>
+    <div class="pc-title">Giải Mã Nhân Tính</div>
+    <div class="pc-subtitle">Cẩm nang PDF · 50 sự thật · 39 trang</div>
+
+    <div class="pc-countdown">
+      <span class="pc-cd-label">Còn lại</span>
+      <div class="pc-cd-units">
+        <span class="pc-cd-num" id="h2">00</span>
+        <span class="pc-cd-sep">:</span>
+        <span class="pc-cd-num" id="m2">00</span>
+        <span class="pc-cd-sep">:</span>
+        <span class="pc-cd-num" id="s2">00</span>
+      </div>
+    </div>
+
+    <div class="pc-price-old">Giá gốc: 299.000đ</div>
+    <div class="pc-price">149<span>k</span></div>
+    <div class="pc-savings">Tiết kiệm 150.000đ — 50% OFF</div>
+
+    <ul class="pc-features">
+      <li>Tài liệu số PDF 39 trang, thiết kế chuyên nghiệp</li>
+      <li>50 sự thật về nhân tính theo phong cách triết học thực dụng</li>
+      <li>5 chương: Mặt Nạ · Lợi Ích · Quyền Lực · Phản Bội · Tự Do</li>
+      <li>Lời mở đầu + Lời kết + Giới thiệu chuyên đề</li>
+      <li>Nhận tài liệu ngay sau thanh toán · Sở hữu vĩnh viễn</li>
+      <li>Hóa đơn điện tử hợp lệ theo quy định</li>
+    </ul>
+
+    <button class="pc-cta" onclick="openModal()">Mua ngay — Chỉ 149.000đ</button>
+    <div class="pc-guarantee">Thanh toán bảo mật · Nhận tài liệu ngay · Hóa đơn điện tử tự động</div>
+  </div>
+</section>
+
+<!-- ══════ REVIEWS ══════ -->
+<section class="reviews">
+  <div class="section-inner">
+    <p class="section-label reveal" style="text-align:center">Phản hồi</p>
+    <h2 class="section-title reveal" style="text-align:center">Người đọc <em>nói gì</em></h2>
+    <div class="divider reveal" style="margin:20px auto 36px"></div>
+    <div class="review-grid">
+      <div class="review-card reveal">
+        <div class="stars">★★★★★</div>
+        <div class="review-text">"Đọc xong tôi ngồi im 10 phút. Không phải vì cẩm nang dạy tôi điều gì mới — mà vì nó nói thẳng những thứ tôi biết nhưng chưa dám tự thừa nhận."</div>
+        <div class="review-author">
+          <div class="review-avatar">TL</div>
+          <div><div class="review-name">Thanh Liêm</div><div class="review-role">Nhân viên kinh doanh, 28 tuổi</div></div>
+        </div>
+      </div>
+      <div class="review-card reveal">
+        <div class="stars">★★★★★</div>
+        <div class="review-text">"Sự thật số 32 về phản bội — tôi đã đọc, dừng lại và không đọc thêm được vì nó quá đúng. Sau 15 phút mới đọc tiếp."</div>
+        <div class="review-author">
+          <div class="review-avatar">MH</div>
+          <div><div class="review-name">Minh Hằng</div><div class="review-role">Giáo viên, 34 tuổi</div></div>
+        </div>
+      </div>
+      <div class="review-card reveal">
+        <div class="stars">★★★★★</div>
+        <div class="review-text">"Không phải tài liệu self-help thông thường. Không có câu 'hãy nghĩ tích cực'. Chỉ có sự thật — đôi khi khó chịu, nhưng cần thiết."</div>
+        <div class="review-author">
+          <div class="review-avatar">PK</div>
+          <div><div class="review-name">Phúc Khang</div><div class="review-role">Freelancer, 25 tuổi</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ FAQ ══════ -->
+<section class="faq">
+  <div class="faq-inner">
+    <p class="section-label reveal" style="text-align:center">Câu hỏi thường gặp</p>
+    <h2 class="section-title reveal" style="text-align:center">Giải đáp <em>thắc mắc</em></h2>
+    <div class="divider reveal" style="margin:20px auto 0"></div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this.parentElement)">Sau khi thanh toán tôi nhận tài liệu như thế nào?</div>
+        <div class="faq-a">Tài liệu PDF sẽ được gửi tự động về địa chỉ email bạn cung cấp khi đặt hàng, thường trong vòng vài phút sau khi hệ thống xác nhận thanh toán. Nếu không thấy trong hộp thư đến, hãy kiểm tra thư mục Spam hoặc Quảng cáo.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this.parentElement)">Tôi có thể đọc trên điện thoại không?</div>
+        <div class="faq-a">Hoàn toàn được. Tài liệu PDF được thiết kế tối ưu cho điện thoại, máy tính bảng và máy tính. Bạn có thể dùng bất kỳ ứng dụng đọc PDF nào như Google Drive, iBooks, Adobe Acrobat Reader.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this.parentElement)">Giá ưu đãi kéo dài bao lâu?</div>
+        <div class="faq-a">Chương trình ưu đãi 50% chỉ kéo dài theo đồng hồ đếm ngược hiển thị trên trang. Sau khi hết hạn, giá sẽ trở về 299.000đ. Không có ngoại lệ.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this.parentElement)">Cẩm nang này có phù hợp với tôi không?</div>
+        <div class="faq-a">Cẩm nang phù hợp với bất kỳ ai từ 20 tuổi trở lên đang muốn hiểu rõ hơn về bản chất con người, xây dựng ranh giới cá nhân, và sống một cách chủ đích hơn. Không cần nền tảng triết học hay tâm lý học trước đó.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this.parentElement)">Chính sách đổi trả như thế nào?</div>
+        <div class="faq-a">Do đây là sản phẩm số (tài liệu PDF), chúng tôi không áp dụng chính sách hoàn tiền sau khi tài liệu đã được gửi đến email. Vui lòng đọc kỹ phần trích đoạn và mô tả trước khi quyết định.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this.parentElement)">Tôi có nhận hóa đơn không?</div>
+        <div class="faq-a">Có. Hóa đơn điện tử (HĐĐT) sẽ được xuất tự động và gửi về email của bạn trong vòng 24 giờ sau khi thanh toán, theo đúng quy định của Bộ Tài Chính và Tổng cục Thuế.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ FINAL CTA ══════ -->
+<section class="final-cta">
+  <div class="fc-quote reveal">
+    "Mỗi trang viết là một cuộc đời đã trả giá thay bạn rồi. <strong>Tất cả những gì bạn cần làm là mở nó ra."</strong>
+  </div>
+  <button class="cta-btn reveal" style="margin:0 auto" onclick="openModal()">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    Sở hữu ngay — 149.000đ
+  </button>
+  <p style="margin-top:14px;font-size:12px;color:var(--muted)" class="reveal">Ưu đãi 50% kết thúc khi đồng hồ về 0</p>
+</section>
+
+<!-- ══════ POLICY ══════ -->
+<div class="policy-section" id="policy">
+  <div class="policy-inner">
+    <div class="policy-tabs">
+      <div class="policy-tab active" onclick="showPolicy('refund')">Chính sách đổi trả</div>
+      <div class="policy-tab" onclick="showPolicy('privacy')">Chính sách bảo mật</div>
+    </div>
+    <div class="policy-content active" id="policy-refund">
+      <h4>Chính sách đổi trả — Sản phẩm số</h4>
+      <p>Cẩm Nang Giải Mã Nhân Tính là tài liệu số dạng PDF (sản phẩm vô hình, không thể thu hồi sau khi giao). Do đó, Hanadola Media & Technology không áp dụng chính sách hoàn tiền sau khi tài liệu đã được giao thành công đến địa chỉ email khách hàng cung cấp.</p>
+      <h4>Trường hợp được hỗ trợ</h4>
+      <p>Nếu bạn đã thanh toán nhưng không nhận được tài liệu sau 30 phút (kể cả kiểm tra thư mục Spam), vui lòng liên hệ <strong>admin@hanadola.com</strong> hoặc Zalo <strong>0935 251 866</strong> để được hỗ trợ gửi lại ngay.</p>
+    </div>
+    <div class="policy-content" id="policy-privacy">
+      <h4>Thu thập và sử dụng thông tin</h4>
+      <p>Chúng tôi thu thập họ tên, email và số điện thoại của bạn với mục đích duy nhất là giao tài liệu và xuất hóa đơn điện tử. Thông tin này không được chia sẻ với bên thứ ba vì bất kỳ mục đích thương mại nào.</p>
+      <h4>Bảo mật thanh toán</h4>
+      <p>Mọi giao dịch thanh toán được xử lý qua SePay — đơn vị trung gian thanh toán được Ngân hàng Nhà nước cấp phép. Hanadola không lưu trữ thông tin thẻ hay tài khoản ngân hàng của bạn.</p>
+      <h4>Quyền của người dùng</h4>
+      <p>Bạn có quyền yêu cầu xóa dữ liệu cá nhân bằng cách gửi email đến <strong>admin@hanadola.com</strong>.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ FOOTER ══════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">Hanadola Media & Technology</div>
+    <div class="footer-sub">Dừng lại · Nhìn rõ hơn · Sống có chủ đích hơn</div>
+    <div class="footer-info">
+      Công ty TNHH Hanadola Media & Technology · MST: 0319352856<br>
+      P903, Tầng 9, Diamond Plaza, 34 Lê Duẩn, Phường Bến Nghé, Quận 1, TP.HCM<br>
+      Email: admin@hanadola.com · Zalo: 0935 251 866
+    </div>
+    <div class="footer-links">
+      <a onclick="showPolicy('refund');document.getElementById('policy').scrollIntoView({behavior:'smooth'})">Chính sách đổi trả</a>
+      <a onclick="showPolicy('privacy');document.getElementById('policy').scrollIntoView({behavior:'smooth'})">Chính sách bảo mật</a>
+      <a href="mailto:admin@hanadola.com">Liên hệ</a>
+    </div>
+    <div class="footer-copy">© 2026 Hanadola Media & Technology. Bảo lưu mọi quyền.</div>
+    <div class="footer-legal">
+      Đã đăng ký theo Nghị định 52/2013/NĐ-CP và Nghị định 85/2021/NĐ-CP về thương mại điện tử.<br>
+      Đã thông báo với Bộ Công Thương tại địa chỉ hanadola.com.
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── Countdown (72h, lưu localStorage) ── */
+(function(){
+  const KEY = 'cgmn_cd_end';
+  let end = parseInt(localStorage.getItem(KEY) || '0', 10);
+  if (!end || end < Date.now()) {
+    end = Date.now() + 72 * 3600 * 1000;
+    localStorage.setItem(KEY, end);
+  }
+  function pad(n){ return String(n).padStart(2,'0') }
+  function tick(){
+    const diff = Math.max(0, end - Date.now());
+    const h = Math.floor(diff / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    const ph = pad(h), pm = pad(m), ps = pad(s);
+    ['h1','h2'].forEach(id=>{ const el=document.getElementById(id); if(el) el.textContent=ph; });
+    ['m1','m2'].forEach(id=>{ const el=document.getElementById(id); if(el) el.textContent=pm; });
+    ['s1','s2'].forEach(id=>{ const el=document.getElementById(id); if(el) el.textContent=ps; });
+  }
+  tick();
+  setInterval(tick, 1000);
+})();
+
+/* ── Sticky bar ── */
+window.addEventListener('scroll', function(){
+  document.getElementById('sticky').classList.toggle('show', window.scrollY > 500);
+}, {passive:true});
+
+/* ── Scroll reveal ── */
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{
+    if(e.isIntersecting){
+      setTimeout(()=>e.target.classList.add('in'), (i%4)*80);
+    }
+  });
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+/* ── FAQ ── */
+function toggleFaq(item){
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(x=>x.classList.remove('open'));
+  if(!isOpen) item.classList.add('open');
+}
+
+/* ── Policy tabs ── */
+function showPolicy(id){
+  document.querySelectorAll('.policy-tab').forEach((t,i)=>t.classList.toggle('active', (id==='refund'&&i===0)||(id==='privacy'&&i===1)));
+  document.querySelectorAll('.policy-content').forEach(c=>c.classList.remove('active'));
+  document.getElementById('policy-'+id).classList.add('active');
+}
+
+/* ══════════════════════════════════
+   MODAL & THANH TOÁN
+══════════════════════════════════ */
+let currentOrderCode = '';
+let pollingTimer = null;
+
+function openModal(){
+  document.getElementById('modal-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  showStep(1);
+}
+function closeModal(){
+  document.getElementById('modal-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+  if(pollingTimer){ clearInterval(pollingTimer); pollingTimer = null; }
+}
+function handleOverlayClick(e){
+  if(e.target === document.getElementById('modal-overlay')) closeModal();
+}
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeModal(); });
+
+function showStep(n){
+  document.querySelectorAll('.step').forEach((s,i)=>s.classList.toggle('active', i===n-1));
+  const titles = ['Sở hữu Cẩm Nang','Quét QR để thanh toán','Thanh toán thành công!'];
+  document.getElementById('modal-title').textContent = titles[n-1] || '';
+}
+
+function setError(msg){
+  const el = document.getElementById('m-error');
+  el.textContent = msg;
+  el.style.display = msg ? 'block' : 'none';
+}
+
+async function submitOrder(){
+  const name  = document.getElementById('m-name').value.trim();
+  const email = document.getElementById('m-email').value.trim();
+  const phone = document.getElementById('m-phone').value.trim();
+  setError('');
+
+  if(!name){ setError('⚠ Vui lòng nhập họ và tên.'); document.getElementById('m-name').focus(); return; }
+  if(!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ setError('⚠ Vui lòng nhập email hợp lệ.'); document.getElementById('m-email').focus(); return; }
+  if(!phone || phone.replace(/\D/g,'').length < 9){ setError('⚠ Vui lòng nhập số điện thoại hợp lệ.'); document.getElementById('m-phone').focus(); return; }
+
+  const btn = document.getElementById('m-submit-btn');
+  btn.disabled = true;
+  btn.textContent = 'Đang xử lý...';
+
+  try {
+    const res = await fetch('/api/create-order',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ name, email, phone }),
+    });
+    const data = await res.json();
+    if(!res.ok || !data.success) throw new Error(data.error || 'Lỗi tạo đơn hàng');
+
+    currentOrderCode = data.orderCode;
+
+    // Tạo QR VietQR
+    const qrUrl = `https://img.vietqr.io/image/ACB-20176968-compact2.png?amount=149000&addInfo=CGMN%20${data.orderCode}&accountName=HANADOLA%20MEDIA%20AND%20TECHNOLOGY`;
+    document.getElementById('qr-img').src = qrUrl;
+    document.getElementById('qr-order-code').textContent = `CGMN ${data.orderCode}`;
+    document.getElementById('qr-order-code2').textContent = `CGMN ${data.orderCode}`;
+
+    showStep(2);
+    startPolling(data.orderCode);
+
+  } catch(err){
+    setError('⚠ ' + err.message + '. Vui lòng thử lại.');
+    btn.disabled = false;
+    btn.textContent = 'Tiếp tục — Thanh toán →';
+  }
+}
+
+function startPolling(orderCode){
+  if(pollingTimer) clearInterval(pollingTimer);
+  pollingTimer = setInterval(async()=>{
+    try {
+      const res = await fetch(`/api/check-payment?orderCode=${orderCode}`);
+      const data = await res.json();
+      if(data.status === 'paid'){
+        clearInterval(pollingTimer);
+        pollingTimer = null;
+        const pdfUrl = ''; // PDF URL sẽ được gửi qua email
+        document.getElementById('success-dl-btn').href = pdfUrl || '#';
+        showStep(3);
+      }
+    } catch(e){
+      console.error('[Poll]', e);
+    }
+  }, 3000);
+}
+</script>
+</body>
+</html>
