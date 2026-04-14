@@ -50,78 +50,80 @@ async function sendEmail({ to, subject, html }) {
   console.log('[Resend] TO:', to, '| status:', r.status, '| resp:', text);
 }
 
-/* ── SePay eInvoice (async) ── */
-async function createEInvoice({ order, invoiceNumber }) {
-  const username = process.env.EINVOICE_USERNAME;
-  const password = process.env.EINVOICE_PASSWORD;
-  const supplierTaxCode = process.env.EINVOICE_SUPPLIER_TAX_CODE;
+/* ── SePay eInvoice ── */
+const EINVOICE_BASE = 'https://einvoice-api.sepay.vn';
 
-  if (!username || !password || !supplierTaxCode) {
+async function createEInvoice({ order, transferAmount }) {
+  const clientId          = process.env.SEPAY_EINVOICE_CLIENT_ID;
+  const clientSecret      = process.env.SEPAY_EINVOICE_CLIENT_SECRET;
+  const providerAccountId = process.env.SEPAY_EINVOICE_PROVIDER_ACCOUNT_ID;
+  const templateCode      = process.env.SEPAY_EINVOICE_TEMPLATE_CODE;
+  const invoiceSeries     = process.env.SEPAY_EINVOICE_SERIES;
+
+  if (!clientId || !clientSecret || !providerAccountId) {
     console.log('[eInvoice] Thiếu biến môi trường — bỏ qua');
     return null;
   }
 
-  // Bước 1: Lấy token
-  const tokenB64 = Buffer.from(`${username}:${password}`).toString('base64');
-  const tokenRes = await fetch('https://api.einvoice.vn/v1/token', {
+  const basic = Buffer.from(`${clientId}:${clientSecret}`).toString('base64');
+  console.log('[eInvoice] Lấy token từ', EINVOICE_BASE + '/v1/token');
+  const tokenRes = await fetch(`${EINVOICE_BASE}/v1/token`, {
     method: 'POST',
     headers: {
-      Authorization: `Basic ${tokenB64}`,
+      Authorization: `Basic ${basic}`,
       'Content-Type': 'application/json',
     },
   });
   const tokenData = await tokenRes.json();
   console.log('[eInvoice] Token resp:', tokenRes.status, JSON.stringify(tokenData));
-  if (!tokenData.token) return null;
+  const token = tokenData?.data?.access_token;
+  if (!token) return null;
 
-  const invoiceDate = new Date().toISOString().split('T')[0];
-
-  // Bước 2: Tạo hóa đơn
-  const invoicePayload = {
-    supplier_tax_code: supplierTaxCode,
-    invoice_number: invoiceNumber,
-    invoice_date: invoiceDate,
-    invoice_type: 'B2C',
-    currency: 'VND',
-    buyer_name: order.name,
-    buyer_email: order.email,
-    buyer_phone: order.phone || '',
+  const issuedDate = new Date().toISOString().replace('T', ' ').slice(0, 19);
+  const payload = {
+    template_code:       templateCode,
+    invoice_series:      invoiceSeries,
+    issued_date:         issuedDate,
+    currency:            'VND',
+    provider_account_id: providerAccountId,
+    payment_method:      'CK',
+    buyer: {
+      name:  order.name,
+      email: order.email,
+    },
     items: [
       {
-        item_code: 'CAMNANG-GMN-001',
-        item_name: 'Cẩm Nang Giải Mã Nhân Tính — Tài liệu số PDF',
-        unit: 'Tài liệu',
-        quantity: 1,
-        unit_price: PRICE,
-        tax_rate: 0,
+        line_number: 1,
+        line_type:   1,
+        item_name:   'Cẩm Nang Giải Mã Nhân Tính — Tài liệu số PDF',
+        quantity:    1,
+        unit_price:  transferAmount || PRICE,
+        tax_rate:    -2,
       },
     ],
-    total_amount: PRICE,
-    total_tax: 0,
-    payment_method: 'Chuyển khoản ngân hàng',
-    note: `Đơn hàng ${order.orderCode}`,
+    is_draft: false,
   };
 
-  const invoiceRes = await fetch('https://api.einvoice.vn/v1/invoices/create', {
+  console.log('[eInvoice] Tạo hóa đơn, payload:', JSON.stringify(payload));
+  const invoiceRes = await fetch(`${EINVOICE_BASE}/v1/invoices/create`, {
     method: 'POST',
     headers: {
-      Authorization: `Bearer ${tokenData.token}`,
+      Authorization: `Bearer ${token}`,
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(invoicePayload),
+    body: JSON.stringify(payload),
   });
   const invoiceData = await invoiceRes.json();
   console.log('[eInvoice] Create resp:', invoiceRes.status, JSON.stringify(invoiceData));
-  return invoiceData.tracking_code || null;
+  return invoiceData?.data || null;
 }
 
 /* ── Webhook handler ── */
 module.exports = async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
-  // Xác thực Apikey SePay
   const authHeader = req.headers['authorization'] || '';
-  const expectedToken = process.env.SEPAY_API_TOKEN;
+  const expectedToken = process.env.SEPAY_API_KEY;
   if (expectedToken && authHeader !== `Apikey ${expectedToken}`) {
     console.warn('[Webhook] Auth thất bại:', authHeader);
     return res.status(401).json({ error: 'Unauthorized' });
@@ -133,7 +135,6 @@ module.exports = async function handler(req, res) {
   const content = body.content || body.description || '';
   const transferAmount = Number(body.transferAmount || body.amount || 0);
 
-  // Tìm mã đơn hàng trong nội dung chuyển khoản
   const match = content.match(ORDER_CODE_REGEX);
   if (!match) {
     console.log('[Webhook] Không tìm thấy mã CGMN trong:', content);
@@ -143,13 +144,11 @@ module.exports = async function handler(req, res) {
   const orderCode = match[0].toUpperCase();
   console.log('[Webhook] Mã đơn:', orderCode, '| Số tiền:', transferAmount);
 
-  // Kiểm tra số tiền
   if (transferAmount < PRICE) {
     console.warn('[Webhook] Số tiền không đủ:', transferAmount, '< ', PRICE);
     return res.status(200).json({ success: false, message: 'Số tiền không đủ' });
   }
 
-  // Lấy đơn hàng từ KV
   const raw = await kvGet(`order:${orderCode}`);
   if (!raw) {
     console.warn('[Webhook] Không tìm thấy đơn:', orderCode);
@@ -162,7 +161,6 @@ module.exports = async function handler(req, res) {
     return res.status(200).json({ success: true, message: 'Đã xử lý trước đó' });
   }
 
-  // Cập nhật trạng thái đã thanh toán
   const paidAt = new Date().toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' });
   order.status = 'paid';
   order.paidAt = paidAt;
@@ -170,26 +168,26 @@ module.exports = async function handler(req, res) {
   await kvSet(`order:${orderCode}`, JSON.stringify(order), 86400 * 30);
   console.log('[Webhook] Đã cập nhật paid:', orderCode);
 
-  // Tạo số hóa đơn
   const counter = await kvIncr('cgmn_invoice_counter');
   const invoiceNumber = `HD-CGMN-2026-${String(counter).padStart(4, '0')}`;
 
-  // Tạo eInvoice (async — chỉ lưu tracking_code)
+  let einvoiceData = null;
   try {
-    const trackingCode = await createEInvoice({ order, invoiceNumber });
-    if (trackingCode) {
-      order.invoiceTrackingCode = trackingCode;
+    einvoiceData = await createEInvoice({ order, transferAmount });
+    if (einvoiceData) {
+      order.invoiceTrackingCode = einvoiceData.tracking_code || null;
       order.invoiceNumber = invoiceNumber;
       await kvSet(`order:${orderCode}`, JSON.stringify(order), 86400 * 30);
-      console.log('[eInvoice] Tracking code:', trackingCode);
+      console.log('[eInvoice] ✅ tracking_code:', einvoiceData.tracking_code);
+    } else {
+      console.warn('[eInvoice] ⚠️ Không tạo được hóa đơn (xem log trên)');
     }
   } catch (err) {
-    console.error('[eInvoice] Lỗi:', err.message);
+    console.error('[eInvoice] ❌ Lỗi:', err.message);
   }
 
   const pdfUrl = process.env.PRODUCT_PDF_URL || '#';
 
-  // ── Email cho khách hàng ──
   try {
     await sendEmail({
       to: order.email,
@@ -233,7 +231,6 @@ p{font-size:14px;color:rgba(250,248,244,0.6);line-height:1.8;margin-bottom:16px}
     console.error('[Email] Lỗi gửi email khách:', err.message);
   }
 
-  // ── Email thông báo admin ──
   const notifyEmail = process.env.NOTIFY_EMAIL;
   if (notifyEmail) {
     try {
