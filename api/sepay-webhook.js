@@ -95,6 +95,7 @@ async function createEInvoice({ order, transferAmount }) {
       {
         line_number: 1,
         line_type:   1,
+        item_code:   'CGMN-001',
         item_name:   'Cẩm Nang Giải Mã Nhân Tính — Tài liệu số PDF',
         quantity:    1,
         unit_price:  transferAmount || PRICE,
